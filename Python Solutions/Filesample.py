@@ -1,0 +1,6 @@
+fin=open("infile.txt", "r")
+fout=open("outfile.txt", "w")
+numofdays=int(fin.readline())
+fout.write("You have "+str(numofdays)+" days before your birthday"+"\n")
+fout.close()
+fin.close()
