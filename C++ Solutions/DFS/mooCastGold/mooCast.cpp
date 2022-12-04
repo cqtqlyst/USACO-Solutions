@@ -20,22 +20,37 @@ int dfs(int num) {
 
     int count = 1;
 
+    // for (int i = 0; i<n; i++) {
+    //     cout << visited[i] << " ";
+    // }
+    // cout << "\n";
+
     for (int i = 0; i<n; i++) {
-        if (!visited[i] || connected[n][i]) {
-            // cout << "visited is " << visited[i] << " and connected is " << connected[n][i] << "\n";
-
-            continue;
+        // cout << "visited: " << visited[i] << " connected: " << connected[n][i] << "\n";
+        if (!visited[i] && connected[num][i]) {
+            // cout << "got to run dfs \n";
+            count+=dfs(i);
         }
-        // cout << "got to run dfs \n";
-        count+=dfs(i);
+        // cout << "visited is " << visited[i] << " and connected is " << connected[n][i] << "\n";
     }
-
     return count;
 }
 
 bool valid(int value) {
     
     connected = vector<vector<bool>>(n+1, vector<bool>(n+1));
+
+    // for (int i = 0; i<n; i++) {
+    //     for (int j = 0; j<n; j++) {
+    //         if (connected[i][j]) {
+    //             cout << "1 ";
+    //         }
+    //         else {
+    //             cout << "0 ";
+    //         }
+    //     }
+    //     cout << "\n";
+    // }
 
     for (int i = 0; i<n; i++) {
         for (int j = 0; j<n; j++) {
@@ -62,6 +77,11 @@ bool valid(int value) {
     // cout << "\n";
 
     visited = vector<bool>(n+1);
+
+    // for (int i = 0; i<n; i++) {
+    //     cout << visited[i] << " ";
+    // }
+    // cout << "\n";
 
     // cout << "this is the dfs(0) " << dfs(0) << "\n";
 
@@ -95,9 +115,9 @@ int main() {
 
     while (low <= high) {
         long mid = low + (high - low) / 2;
-        cout << mid << "\n";
+        // cout << mid << "\n";
         if (valid(mid)) {
-            cout << "this is a valid value" << mid << "\n";
+            // cout << "this is a valid value" << mid << "\n";
             high = mid-1;
             sol = min(mid, sol);
         }
