@@ -27,7 +27,7 @@ int main() {
     cin >> n, m;
     cin >> cowsMilk;
     ans = vector<int>(n);
-    adj = vector<vector<int>>(n);
+    adj = vector<vector<int>>(n, vector<int>(0));
     visited = vector<bool>(n);
     for (int i = 0; i<n; i++) {
         int a, b;
@@ -46,8 +46,7 @@ int main() {
         int start, end;
         char preference;
         cin >> start >> end >> preference;
-        start--;
-        end--;
+        start--; end--;
         if (ans[start] == ans[end]) {
             cout << (cowsMilk[start] == preference);
         }
@@ -55,5 +54,4 @@ int main() {
             cout << "1";
         }
     }
-
 }
