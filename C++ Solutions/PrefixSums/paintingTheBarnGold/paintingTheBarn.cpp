@@ -4,7 +4,7 @@
 
 using namespace std;
 
-const int MAX_N = 1E5;
+const int MAX_N = 200;
 
 int main() {
     freopen("paintbarn.in", "r", stdin);
